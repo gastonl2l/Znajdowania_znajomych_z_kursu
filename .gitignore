@@ -1,0 +1,15 @@
+.env
+.vscode
+29__find_friends__clustering_v2.ipynb
+29__find_friends__clustering.ipynb
+30__find_friends__v1__load_data.py
+31__find_friends__v2__find_friends.py
+32__find_friends__human_friendly_cluters_v2.ipynb
+32__find_friends__human_friendly_cluters.ipynb
+33__find_friends__v3__named_clusters.py
+logs.log
+welcome_survey_cluster_names_and_descriptions_v1.json
+welcome_survey_clustering_pipeline_v1.pkl
+welcome_survey_simple_v1.csv
+
+
