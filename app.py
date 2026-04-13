@@ -82,7 +82,7 @@ st.metric("Liczba twoich znajomych", len(same_cluster_df))
 st.header("Wiek i Płeć")
 col1, col2 = st.columns(2)
 
-
+# Wiek i płeć
 with col1:
     
     fig = px.pie(same_cluster_df, 
@@ -94,30 +94,42 @@ with col1:
     st.plotly_chart(fig)
 
 with col2:
-    fig = px.histogram( same_cluster_df, 
-    x="gender", 
-    color="gender",  # To doda automatycznie różne kolory dla płci
-    color_discrete_sequence=px.colors.qualitative.Safe # Opcjonalnie: ładna paleta kolorów)
-    ,)
+    fig = px.pie(
+    same_cluster_df,
+    names="gender",  # zamiast x
+    color="gender",
+    color_discrete_sequence=px.colors.qualitative.Safe
+)
+
     fig.update_layout(
         title="Rozkład płci w grupie",
-        xaxis_title="Płeć",
-        yaxis_title="Liczba osób",
-        showlegend=False 
+        showlegend=True
     )
+
     st.plotly_chart(fig)
 
-
-fig = px.histogram(same_cluster_df, x="edu_level")
-fig.update_layout(
-    title="Rozkład wykształcenia w grupie",
-    xaxis_title="Wykształcenie",
-    yaxis_title="Liczba osób",
+# Wykształcenie
+st.header("Wykształcenie")
+fig = px.pie(
+    same_cluster_df,
+    names="edu_level",
+    color="edu_level",
+    color_discrete_sequence=px.colors.qualitative.Pastel,
+    hole=0.4  #to robi "dziurę"
 )
+
+fig.update_layout(
+    title="Rozkład wykształcenia w grupie"
+)
+
+fig.update_traces(
+    textinfo="percent+label"
+)
+
 st.plotly_chart(fig)
 
 
-
+# Zwierzęta i odpoczynek
 st.header("Ulubione Zwierzęta i Odpoczynek")
 col1, col2 = st.columns(2)
 
